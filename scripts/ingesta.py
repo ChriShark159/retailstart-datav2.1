@@ -65,9 +65,7 @@ logs_df = pd.DataFrame(logs, columns=["log"])
 
 print("[OK] Archivo TXT cargado correctamente")
 
-
 # MOSTRAR INFORMACIÓN GENERAL
-
 
 print("\n================ DATASETS =================")
 
@@ -97,9 +95,7 @@ ventas_completas = ventas_completas.merge(
     how="left"
 )
 
-# =====================================================
 # CREAR CAMPO TOTAL VENTA
-# =====================================================
 
 ventas_completas["total_venta"] = (
     ventas_completas["cantidad"] *
@@ -108,9 +104,7 @@ ventas_completas["total_venta"] = (
 
 print("\n[OK] Integración de datos completada")
 
-# =====================================================
 # GUARDAR ARCHIVOS PROCESADOS
-# =====================================================
 
 ventas_completas.to_csv(
     "../data/processed/ventas_completas.csv",
@@ -139,9 +133,7 @@ logs_df.to_csv(
 
 print("[OK] Archivos procesados guardados")
 
-# =====================================================
 # VISTA PREVIA
-# =====================================================
 
 print("\n============= VENTAS COMPLETAS =============")
 print(ventas_completas.head())

@@ -1,0 +1,11 @@
+id_venta,fecha,id_cliente,id_producto,cantidad,precio_unitario,tienda,nombre,apellido,email,segmento,ciudad,nombre_producto,categoria,precio_base,proveedor,total_venta
+1,2026-04-01,101,2001,2,150000,Santiago,Juan,Perez,juan@email.com,Premium,Santiago,Notebook Lenovo,Tecnologia,140000,Lenovo,300000
+2,2026-04-01,102,2002,1,300000,Providencia,Ana,Gomez,ana@email.com,Regular,Valparaiso,Smartphone Samsung,Tecnologia,280000,Samsung,300000
+3,2026-04-02,103,2003,1,50000,Maipu,Carlos,Rojas,carlos@email.com,Premium,Concepcion,Polera Hombre,Vestuario,30000,Nike,50000
+4,2026-04-02,101,2001,1,150000,Las Condes,Juan,Perez,juan@email.com,Premium,Santiago,Notebook Lenovo,Tecnologia,140000,Lenovo,150000
+5,2026-04-03,104,2004,3,20000,La Florida,Maria,Lopez,maria@email.com,Nuevo,Santiago,Silla Oficina,Hogar,15000,Ikea,60000
+6,2026-04-03,105,2002,2,300000,Puente Alto,Pedro,Diaz,pedro@email.com,Regular,Temuco,Smartphone Samsung,Tecnologia,280000,Samsung,600000
+7,2026-04-04,106,2005,1,80000,Ñuñoa,Laura,Martinez,laura@email.com,Premium,Santiago,Audifonos Sony,Tecnologia,70000,Sony,80000
+8,2026-04-04,107,2003,2,50000,Santiago,Diego,Soto,diego@email.com,Nuevo,Antofagasta,Polera Hombre,Vestuario,30000,Nike,100000
+9,2026-04-05,108,2006,1,120000,Providencia,Sofia,Reyes,sofia@email.com,Regular,Santiago,Tablet Huawei,Tecnologia,100000,Huawei,120000
+10,2026-04-05,109,2001,1,150000,Maipu,Andres,Castro,andres@email.com,Premium,La Serena,Notebook Lenovo,Tecnologia,140000,Lenovo,150000
