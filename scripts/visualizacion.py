@@ -5,7 +5,7 @@ print("=" * 50)
 print("ANÁLISIS Y VISUALIZACIÓN")
 print("=" * 50)
 
-# CARGAR DATASETS ANALÍTICOS
+# CARGAR DATASETS
 
 ventas_cliente = pd.read_csv(
     "../data/processed/ventas_por_cliente.csv"
@@ -21,81 +21,126 @@ productos = pd.read_csv(
 
 print("[OK] Datos cargados")
 
-# MEJORES CLIENTES
+# CREAR NOMBRE COMPLETO CLIENTES
 
-top5_clientes = ventas_cliente.head(5)
+ventas_cliente["cliente"] = (
+    ventas_cliente["nombre"] + " " +
+    ventas_cliente["apellido"]
+)
 
-print("\n============= TOP CLIENTES =============")
-print(top5_clientes)
+# MOSTRAR RESULTADOS
 
-# CANAL MÁS VENDIDO
+print("\n============= CLIENTES =============")
+print(ventas_cliente)
 
 print("\n============= VENTAS POR CANAL =============")
 print(ventas_canal)
 
-# PRODUCTOS MÁS VENDIDOS
+print("\n============= PRODUCTOS =============")
+print(productos)
 
-top_productos = productos.head(5)
+# GRÁFICO CLIENTES
 
-print("\n============= PRODUCTOS MÁS VENDIDOS =============")
-print(top_productos)
+plt.figure(figsize=(14, 6))
 
-# GRÁFICO TOP CLIENTES
-
-plt.figure(figsize=(10, 5))
-
-plt.bar(
-    top5_clientes["nombre"],
-    top5_clientes["total_venta"]
+barras = plt.bar(
+    ventas_cliente["cliente"],
+    ventas_cliente["total_venta"]
 )
 
-plt.title("Top 5 Clientes")
+plt.title("Ventas Totales por Cliente")
 plt.xlabel("Clientes")
 plt.ylabel("Ventas Totales")
 
+plt.xticks(rotation=25)
+
+# Mostrar valores arriba
+for barra in barras:
+    altura = barra.get_height()
+
+    plt.text(
+        barra.get_x() + barra.get_width()/2,
+        altura,
+        f'{altura:,.0f}',
+        ha='center',
+        va='bottom'
+    )
+
 plt.tight_layout()
 
-plt.savefig("../data/processed/grafico_top_clientes.png")
+plt.savefig(
+    "../data/processed/grafico_top_clientes.png"
+)
 
 plt.close()
 
 # GRÁFICO VENTAS POR CANAL
 
-plt.figure(figsize=(6, 5))
+plt.figure(figsize=(8, 6))
 
-plt.bar(
+barras = plt.bar(
     ventas_canal["canal"],
     ventas_canal["total"]
 )
 
 plt.title("Ventas por Canal")
 plt.xlabel("Canal")
-plt.ylabel("Ventas")
+plt.ylabel("Ventas Totales")
+
+# Mostrar valores arriba
+for barra in barras:
+    altura = barra.get_height()
+
+    plt.text(
+        barra.get_x() + barra.get_width()/2,
+        altura,
+        f'{altura:,.0f}',
+        ha='center',
+        va='bottom'
+    )
 
 plt.tight_layout()
 
-plt.savefig("../data/processed/grafico_ventas_canal.png")
+plt.savefig(
+    "../data/processed/grafico_ventas_canal.png"
+)
 
 plt.close()
 
+# =====================================================
 # GRÁFICO PRODUCTOS MÁS VENDIDOS
+# =====================================================
 
-plt.figure(figsize=(10, 5))
+plt.figure(figsize=(12, 6))
 
-plt.bar(
-    top_productos["nombre_producto"],
-    top_productos["cantidad"]
+barras = plt.bar(
+    productos["nombre_producto"],
+    productos["cantidad"]
 )
 
 plt.title("Productos Más Vendidos")
 plt.xlabel("Producto")
 plt.ylabel("Cantidad Vendida")
 
-plt.xticks(rotation=15)
+plt.xticks(rotation=20)
+
+# Mostrar valores arriba
+for barra in barras:
+    altura = barra.get_height()
+
+    plt.text(
+        barra.get_x() + barra.get_width()/2,
+        altura,
+        f'{altura:.0f}',
+        ha='center',
+        va='bottom'
+    )
 
 plt.tight_layout()
 
-plt.savefig("../data/processed/grafico_productos.png")
+plt.savefig(
+    "../data/processed/grafico_productos.png"
+)
 
 plt.close()
 
